@@ -78,7 +78,6 @@ export default function CreateEventForm({ open, handleClose }) {
         if(step === 1) {
             setStep(2);
         } else if(step === 2) {
-            console.log(formData);
             setStep(3);
 
             //set the eventLink state to res.event_link??

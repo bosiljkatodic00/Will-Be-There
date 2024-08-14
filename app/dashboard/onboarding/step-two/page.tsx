@@ -30,8 +30,6 @@ export default function StepTwo() {
 
   if (!token) {
     router.push("/auth/login");
-  } else {
-    console.log("Token found:", token);
   }
 
   const createEvent = async (url: string, token: string, obj) => {
@@ -41,14 +39,12 @@ export default function StepTwo() {
         headers: { Authorization: "Bearer " + token },
       });
 
-      console.log("Event ID:", response.data);
       router.push(`/dashboard/onboarding/step-three/?eventId=${response.data}`);
 
       return response.data;
       setIsLoading(false);
     } catch (error: any) {
       console.error("Error signing up:", error);
-      console.log(obj);
     }
   };
 

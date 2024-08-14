@@ -37,7 +37,6 @@ export default function EventDashboardPage({
                 headers: { Authorization: 'Bearer ' + token }
             });
 
-            console.log('Event:', response.data);
             setEvent(response.data);
             return response.data;
         } catch (error: any) {
@@ -57,7 +56,6 @@ export default function EventDashboardPage({
                 }
             );
 
-            console.log('Guests:', response.data);
             setGuests(response.data);
             return response.data;
         } catch (error: any) {

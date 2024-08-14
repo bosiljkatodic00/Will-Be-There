@@ -15,7 +15,6 @@ export default function ImageUpload({ open, setOpen, handleSubmit, image, imageU
 
     const handleFileSelect = (e) => {
         const file = e.target.files[0];
-        console.log(file)
         setImage(file)
         handleFile(file);
     };

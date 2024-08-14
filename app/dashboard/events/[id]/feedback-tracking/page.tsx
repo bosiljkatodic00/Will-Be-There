@@ -19,15 +19,12 @@ export default function Page({ params }: { params: { id } }) {
                 }
             );
 
-            console.log('Guests:', response.data);
-
             const filteredData = response.data.filter(
                 (entry) => entry.message.trim() !== ''
             ).reverse();
 
             setGuests(filteredData);
-            console.log(filteredData);
-
+            
             return response.data;
         } catch (error: any) {
             console.error('Error:', error);

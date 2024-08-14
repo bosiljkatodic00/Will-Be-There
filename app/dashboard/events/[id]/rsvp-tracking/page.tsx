@@ -40,7 +40,6 @@ export default function RSVPTrackingPage({
                 headers: { Authorization: 'Bearer ' + token }
             });
 
-            console.log('Events:', response.data);
             setEvent(response.data);
             return response.data;
         } catch (error: any) {
@@ -58,8 +57,6 @@ export default function RSVPTrackingPage({
                     headers: { Authorization: 'Bearer ' + token }
                 }
             );
-
-            console.log('Guests:', response.data);
             
             setGuests(response.data);
             return response.data;

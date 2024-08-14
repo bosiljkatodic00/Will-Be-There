@@ -27,6 +27,7 @@ const Dashboard = () => {
     const [image, setImage] = useState(null);
     const [imageUrl, setImageUrl] = useState('')
     const id = sessionStorage.getItem('event_id')
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
 
     const getEvents = async (id: string, url: string, token: string) => {
@@ -45,7 +46,6 @@ const Dashboard = () => {
                 return dateB - dateA;
             });
             setEvents(sortedEvents);
-            console.log('Event:', sortedEvents);
             return response.data;
         } catch (error: any) {
             console.error('Error signing up:', error);
@@ -63,7 +63,6 @@ const Dashboard = () => {
                 headers: { Authorization: 'Bearer ' + token }
             });
 
-            console.log('User:', response.data);
             setUser(response.data);
             return response.data;
         } catch (error: any) {
@@ -82,10 +81,9 @@ const Dashboard = () => {
                     Authorization: 'Bearer ' + token
                 }
             })
-            console.log(response.data)
-
+            setErrorMessage(null);
         } catch (error) {
-            console.log(error)
+            setErrorMessage('Failed to upload image. Please try again later.');
         }
         finally{
             window.location.reload()
@@ -99,15 +97,13 @@ const Dashboard = () => {
 
         if (!token) {
             router.push('/auth/login');
-        } else {
-            console.log('Token found:', token);
         }
+        
         getUser(user_id, url, token);
 
         getEvents(user_id, url, token);
     }, [0]);
 
-    console.log(events, user);
     return (
         <main className='w-full sm:p-7  p-5   bg-[#F2EFF7]'>
             <header className='mb-8'>
@@ -120,6 +116,12 @@ const Dashboard = () => {
                     )}
                 </h1>
             </header>
+
+            {errorMessage && (
+                <div className='w-full bg-red-100 text-red-700 p-4 rounded-lg mb-4'>
+                    {errorMessage}
+                </div>
+            )}
 
             <section className='mb-8'>
                 <h2 className='text-2xl font-bold p-2'>Recent Event</h2>
