@@ -3,9 +3,21 @@ import {
     IoPersonAddOutline,
     IoCloseCircleOutline
 } from 'react-icons/io5';
-import CardColumn from './CardColumn';
+import { CardColumn } from './CardColumn';
+import React from 'react';
 
-export default function AttendanceStatusCard({ guests }) {
+interface Guest {
+    id: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+    status: "attending" | "rejected";
+    plus_ones?: { name: string }[];
+  }
+interface AttendanceStatusCardProps {
+    guests: Guest[];
+}
+export const AttendanceStatusCard: React.FC<AttendanceStatusCardProps> = ({ guests }) => {
     // Calculate the total number of guests, including plus ones
     const totalGuests = guests.reduce(
         (total, guest) => total + guest.plus_ones.length + 1,

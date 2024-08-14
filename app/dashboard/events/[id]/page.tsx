@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { AttendanceStatusCard } from '../../../../src/components/dashboard';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import GuestListTable from '../../../../src/components/dashboard/GuestListTable';
+import {GuestListTable} from '../../../../src/components/dashboard/GuestListTable';
 
 const url = 'https://will-be-there.onrender.com';
 
