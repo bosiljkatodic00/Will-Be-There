@@ -34,7 +34,6 @@ export default function StepOne() {
         onSubmit={async (data: StepOneData) => {
           setIsLoading(true);
           try {
-            console.log(data);
             setData({ step: 1, data });
             await router.push("/dashboard/onboarding/step-two");
           } catch (error) {

@@ -134,7 +134,6 @@ export default function Page({ params }: { params: { eventID: string } }) {
         formData)
       }
 
-      console.log("Form data submitted successfully");
     } catch (error) {
       console.error("Error submitting form data:", error);
       alert("Your email has already been added, check your mail.");

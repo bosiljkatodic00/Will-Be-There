@@ -45,7 +45,6 @@ export default function StepThree() {
         validationSchema={stepThreeSchema}
         handle
         onSubmit={(data: StepThreeData) => {
-          console.log(data);
           setData({ step: 3, data });
           // console.log({
           //     id: eventID,

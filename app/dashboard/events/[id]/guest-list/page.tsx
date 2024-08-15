@@ -25,15 +25,14 @@ export default function GuestListPage({ params }: { params: { id: string } }) {
         headers: { Authorization: "Bearer " + token },
       });
 
-      console.log("Event:", response.data);
-      setEvent(response.data);
-      return response.data;
-    } catch (error: any) {
-      console.error("Error:", error);
-      setEvent({} as Event);
-      return [];
-    }
-  };
+    setEvent(response.data);
+    return response.data;
+  } catch (error: any) {
+    console.error('Error:', error);
+    setEvent({} as Event);
+    return [];
+  }
+};
   const getGuests = async (id: string, url: string, token: string) => {
     setIsLoading(true);
     try {
@@ -44,17 +43,17 @@ export default function GuestListPage({ params }: { params: { id: string } }) {
         }
       );
 
-      console.log("Guests:", response.data);
-      setGuests(response.data);
-      setAllGuests(response.data);
-      return response.data;
-    } catch (error: any) {
-      console.error("Error:", error);
-      setGuests([]);
-      return [];
-    } finally {
-      setIsLoading(false);
-    }
+          setGuests(response.data);
+          setAllGuests(response.data);
+          return response.data;
+      } catch (error: any) {
+          console.error('Error:', error);
+          setGuests([]);
+          return [];
+      }
+      finally{
+          setIsLoading(false);
+      }
   };
 
   useEffect(() => {

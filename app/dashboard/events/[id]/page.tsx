@@ -38,13 +38,12 @@ export default function EventDashboardPage({
         headers: { Authorization: "Bearer " + token },
       });
 
-      console.log("Event:", response.data);
       setEvent(response.data);
-      return response.data;
-    } catch (error: any) {
-      console.error("Error:", error);
-      setEvent({} as Event);
-      return [];
+            return response.data;
+        } catch (error: any) {
+            console.error('Error:', error);
+            setEvent({} as Event);
+            return [];
     }
   };
 
@@ -58,7 +57,6 @@ export default function EventDashboardPage({
         }
       );
 
-      console.log("Guests:", response.data);
       setGuests(response.data);
       return response.data;
     } catch (error: any) {
@@ -69,6 +67,7 @@ export default function EventDashboardPage({
       setIsLoading(false);
     }
   };
+
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");

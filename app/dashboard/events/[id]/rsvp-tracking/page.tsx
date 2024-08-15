@@ -37,13 +37,13 @@ export default function RSVPTrackingPage({
   const [event, setEvent] = useState<Event>();
   const [isLoading, setIsLoading] = useState(false);
 
+
   const getEventByID = async (id: string, url: string, token: string) => {
     try {
       const response = await axios.get(`${url}/api/v1/event/${id}`, {
         headers: { Authorization: "Bearer " + token },
       });
 
-      console.log("Events:", response.data);
       setEvent(response.data);
       return response.data;
     } catch (error: any) {
@@ -61,8 +61,6 @@ export default function RSVPTrackingPage({
           headers: { Authorization: "Bearer " + token },
         }
       );
-
-      console.log("Guests:", response.data);
 
       setGuests(response.data);
       setAllGuests(response.data);
