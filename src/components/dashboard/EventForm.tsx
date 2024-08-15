@@ -119,8 +119,8 @@ const CreateEventForm: React.FC<CreateEventFormProps> = ({ open, handleClose }) 
         e.preventDefault();
         if (step === 1) {
             setStep(2);
-        } else if (step === 2) {
-            console.log(formData);
+
+        } else if(step === 2) {
             setStep(3);
 
             // set the eventLink state to res.event_link??

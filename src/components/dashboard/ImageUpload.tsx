@@ -26,7 +26,6 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ open, setOpen, handleS
 
     const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files[0];
-        console.log(file)
         setImage(file)
         handleFile(file);
     };

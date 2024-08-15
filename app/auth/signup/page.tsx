@@ -43,13 +43,11 @@ export default function Signup() {
         "https://will-be-there.onrender.com/api/v1/users/signup",
         formData
       );
-      console.log(res.data)
 
       if (res.status === 400) {
         setError("This email is already registered");
       } else if (res.status === 201) {
         const { token } = res.data; // Extract token from response
-        console.log("Token received", token);
 
         sessionStorage.setItem("token", token); // Store token in local storage
         setLoading(false);
@@ -57,7 +55,6 @@ export default function Signup() {
       }
     } catch (error) {
       setError("Error, try again");
-      console.log("Axios error:", error);
       setLoading(false);
     }
   };

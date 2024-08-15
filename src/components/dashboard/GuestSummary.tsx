@@ -51,7 +51,7 @@ export const GuestSummary: React.FC<GuestSummaryProps> = ({ guest, index }) => {
                     </div>
                 )}
             </div>
-            <div className='col-span-1 md:col-span-3'>{plus_ones.length}</div>
+            <div className='col-span-1 md:col-span-3'>{plus_ones && plus_ones.length}</div>
             <div className='col-span-1'>
                 <button className='rounded-sm border-gray border p-1'>
                     <IoEllipsisVertical />
