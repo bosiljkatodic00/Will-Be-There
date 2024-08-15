@@ -372,6 +372,9 @@ interface StepThreeProps {
 }
 
 const StepThree: React.FC<StepThreeProps> = ({ eventLink }) => {
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+       
+    };
     return (
         <div className='p-8'>
             <div className='text-center'>
@@ -379,7 +382,7 @@ const StepThree: React.FC<StepThreeProps> = ({ eventLink }) => {
                 <p className='text-[#9A9A9A]'>Copy to share the link with your attendees</p>
             </div>
             <div className='flex flex-row'>
-                <TextInput value={eventLink} readOnly={true} width="w-full" />
+                <TextInput value={eventLink} readOnly={true} width="w-full" label="" id="" onChange={handleInputChange}  />
                 <button
                     onClick={() => {
                         navigator.clipboard.writeText(eventLink);
