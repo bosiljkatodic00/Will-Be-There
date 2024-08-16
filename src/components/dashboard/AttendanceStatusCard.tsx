@@ -5,17 +5,10 @@ import {
 } from 'react-icons/io5';
 import { CardColumn } from './CardColumn';
 import React from 'react';
+import { Guests } from "../../../src/types/guests";
 
-interface Guest {
-    id: string;
-    first_name: string;
-    last_name: string;
-    email: string;
-    status: "attending" | "rejected";
-    plus_ones?: { name: string }[];
-  }
 interface AttendanceStatusCardProps {
-    guests: Guest[];
+    guests: Guests[];
 }
 export const AttendanceStatusCard: React.FC<AttendanceStatusCardProps> = ({ guests }) => {
     // Calculate the total number of guests, including plus ones

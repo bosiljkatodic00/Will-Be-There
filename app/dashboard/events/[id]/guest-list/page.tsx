@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import Searchbar from '../../../../../src/components/Searchbar';
-import {AddNewGuest} from '../../../../../src/components/dashboard/AddNewGuest';
+import AddNewGuest from '../../../../../src/components/dashboard/AddNewGuest';
 import { GuestListTable} from '../../../../../src/components/dashboard/GuestListTable';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
