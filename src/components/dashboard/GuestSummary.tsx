@@ -6,7 +6,7 @@ interface Guest {
     first_name: string;
     last_name: string;
     email: string;
-    status: "attending" | "rejected";
+    status: "pending" | "attending" | "rejected" | "approved";
     plus_ones?: { name: string }[];
   }
 
